@@ -20,11 +20,11 @@ class DataTypesInspectionStrategy(DataInspectionStrategy):
         """
             Inspect data types and null of dataframe 
 
-            Parameters:
-            df (pd.DataFrame) to be inspected
+            Args:
+                df (pd.DataFrame) to be inspected
 
             Returns:
-            None : Prints the data types and non-null content for each column
+                None : Prints the data types and non-null content for each column
         """
 
         print("Data Types of Data Frame") 
@@ -35,16 +35,22 @@ class DescribeInspectionStrategy(DataInspectionStrategy):
         """
             Print statistical information about each column 
 
-            Parameters:
-            df (pd.DataFrame) to be inspected
+            Args:
+                df (pd.DataFrame) to be inspected
 
             Returns:
-            None : Print statistical information about each column 
+                None : Print statistical information about each column 
         """
+        print("_"*50)
         print("Statistical Information for Numerical columns\n")
+        print("_"*50)
         print(df.describe())
+        #----------------------------
+        print("_"*50)
         print("\nStatistical Information for none-numerical columns\n")
+        print("_"*50)
         print(df.describe(include=["O"]))
+
 
 
 class DataInspector:
@@ -52,11 +58,11 @@ class DataInspector:
         """
         Initialize the strategy for DataInspector 
 
-        Parameters:
-        strategy (DataInspectionStrategy) 
+        Args:
+            strategy (DataInspectionStrategy) 
 
         Returns:
-        None
+            None
         """
         self._strategy = strategy
 
@@ -64,11 +70,11 @@ class DataInspector:
         """
         Set a new strategy for DataInspector
 
-        Parameters:
-        strategy (DataInspectionStrategy)
+        Args:
+            strategy (DataInspectionStrategy)
 
         Returns:
-        None
+            None
         """
         self._strategy = strategy
 
@@ -76,8 +82,8 @@ class DataInspector:
         """
         Executes the inspection using the current strategy.
 
-        Parameters:
-        df (pd.DataFrame): The dataframe to be inspected.
+        Args:
+            df (pd.DataFrame): The dataframe to be inspected.
 
         Returns:
         None: Executes the strategy's inspection method.
@@ -90,11 +96,11 @@ def explore(strategy:str, df:pd.DataFrame):
     """
     Explore data information based on strategy
 
-    Parameters:
-    strategy -> info, descripe 
+    Args:
+        strategy -> info, descripe 
 
     Returns:
-    None: Print data information based on strategy
+        None: Print data information based on strategy
     """
 
     strategy =  strategy.lower() 
